@@ -18,25 +18,19 @@
 
 namespace org.example.biznet
 
-participant SampleParticipant identified by participantId {
-  o String participantId
+participant customer identified by customerId {
+  o String customerId
   o String firstName
   o String lastName
 }
 
-asset SampleAsset identified by assetId {
+asset equipment identified by assetId {
   o String assetId
-  --> SampleParticipant owner
+  --> customer owner
   o String value
 }
 
 transaction SampleTransaction {
-  --> SampleAsset asset
-  o String newValue
-}
-
-event SampleEvent {
-  --> SampleAsset asset
-  o String oldValue
+  --> equipment asset
   o String newValue
 }
